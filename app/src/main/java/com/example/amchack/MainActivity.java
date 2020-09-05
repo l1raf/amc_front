@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.Manifest;
 import android.app.Activity;
@@ -47,9 +48,10 @@ public class MainActivity extends AppCompatActivity {
     private CardView mFindBirdButton;
     FusedLocationProviderClient client;
     SupportMapFragment supportMapFragment;
+    private FragmentManager fragmentManager;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mFindBirdButton = findViewById(R.id.find_bird);
@@ -66,6 +68,19 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(MainActivity.this, new String[] {
                     Manifest.permission.ACCESS_FINE_LOCATION}, 44);
         }
+
+        fragmentManager = getSupportFragmentManager();
+        final ButtonsFragment buttonsFragment = new ButtonsFragment();
+
+        mFindBirdButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fragmentManager.beginTransaction()
+                        .replace(R.id.buttons_fragment_container, buttonsFragment)
+                        .addToBackStack(ButtonsFragment.class.getName())
+                        .commit();
+            }
+        });
     }
 
     @Override
