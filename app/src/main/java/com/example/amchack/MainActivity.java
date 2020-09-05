@@ -1,6 +1,7 @@
 package com.example.amchack;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
@@ -44,14 +45,14 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     private final static int LOCATION_REQUEST_CODE = 23;
     boolean locationPermission = false;
     private List<Polyline> polylines = null;
-    private Button mFindBirdButton;
+    private CardView mFindBirdButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mFindBirdButton = findViewById(R.id.find_bird);
+        //mFindBirdButton = findViewById(R.id.find_bird);
 
         requestPermission();
 
