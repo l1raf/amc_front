@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/back_trans_violet"
+android:id="@+id/answers_card"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+<RadioGroup
+    android:id="@+id/answers_radio_group"
+    android:paddingHorizontal="30dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center">
+
+    <RadioButton
+
+        android:id="@+id/radioButton1"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/radio_button_back"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black" />
+
+    <RadioButton
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/radio_button_back"
+        android:id="@+id/radioButton2"
+        android:layout_marginHorizontal="10dp"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black" />
+
+    <RadioButton
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/radio_button_back"
+        android:id="@+id/radioButton3"
+        android:layout_marginHorizontal="10dp"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black" />
+
+    <RadioButton
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/radio_button_back"
+        android:id="@+id/radioButton4"
+        android:layout_marginHorizontal="10dp"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black" />
+
+    <RadioButton
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/radio_button_back"
+        android:id="@+id/radioButton5"
+        android:layout_marginHorizontal="10dp"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black" />
+
+    <RadioButton
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/radio_button_back"
+        android:id="@+id/radioButton6"
+        android:layout_marginHorizontal="10dp"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black" />
+
+    <RadioButton
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/radio_button_back"
+        android:id="@+id/radioButton7"
+        android:layout_marginHorizontal="10dp"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black" />
+
+    <RadioButton
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/radio_button_back"
+        android:id="@+id/radioButton8"
+        android:layout_marginHorizontal="10dp"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black" />
+
+    <RadioButton
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/radio_button_back"
+        android:id="@+id/radioButton9"
+        android:layout_marginHorizontal="10dp"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black" />
+
+</RadioGroup>
+
+</FrameLayout>
+
