@@ -14,9 +14,6 @@ public class BirdsActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_birds2);
-
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dark_purple)));
-        getSupportActionBar().setDisplayShowTitleEnabled(true);;
+        setContentView(R.layout.card2);
     }
 }

@@ -44,12 +44,12 @@
     <TextView
         android:id="@+id/text_for_card"
         android:layout_width="270dp"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_gravity="center_horizontal"
         android:textAlignment="center"
         android:fontFamily="sans-serif-light"
         android:textColor="@android:color/white"
         android:background="@drawable/button_rounded_corners"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:text="Ворон (Corvus corax)"/>
 </LinearLayout>
