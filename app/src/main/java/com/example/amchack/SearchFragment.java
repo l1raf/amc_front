@@ -1,5 +1,6 @@
 package com.example.amchack;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -74,8 +75,8 @@ public class SearchFragment extends Fragment implements LoaderManager.LoaderCall
             @Override
             public void onClick(View view) {
                 String name = mSharedPreferencesHelper.getChoice();
-
-
+                Intent intent = new Intent(getActivity(), BirdsActivity2.class);
+                startActivity(intent);
             }
         });
 
