@@ -63,13 +63,7 @@ public class Q_2Fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_q_2, container, false);
-        ImageButton next_button = getActivity().findViewById(R.id.nextButton);
-        next_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               // getActivity().onBackPressed();
-            }
-        });
+
 
         return v;
     }

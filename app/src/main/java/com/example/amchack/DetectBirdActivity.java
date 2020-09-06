@@ -32,7 +32,7 @@ import okhttp3.Response;
 
 public class DetectBirdActivity extends AppCompatActivity {
 
-    private TextView mQuestionTV;
+    private TextView mQuestionTV, mQuestion2TV;
     public static FragmentManager fragmentManager;
     private Spinner spinner;
     private Button mKnownButton;
@@ -50,10 +50,11 @@ public class DetectBirdActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detect_bird);
         mQuestionTV = findViewById(R.id.question_tv);
+        mQuestion2TV = findViewById(R.id.question_tv_2);
         mKnownButton = findViewById(R.id.know_button);
         mForDark = findViewById(R.id.for_dark);
 
-        mKnownButton.setOnClickListener(new View.OnClickListener() {
+        mQuestionTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                         fragmentManager = getSupportFragmentManager();
@@ -65,6 +66,18 @@ public class DetectBirdActivity extends AppCompatActivity {
                         mKnownButton.setEnabled(false);
                     }
                 });
+        mQuestion2TV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fragmentManager = getSupportFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                Q_2Fragment fragment = new Q_2Fragment();
+                transaction.add(R.id.question_container, fragment).commit();
+                transaction.addToBackStack(null);
+                mForDark.setBackgroundResource(R.drawable.black_trans_back);
+                mKnownButton.setEnabled(false);
+            }
+        });
 
 
         client = new OkHttpClient();
