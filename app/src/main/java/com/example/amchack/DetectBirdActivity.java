@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -91,6 +92,12 @@ public class DetectBirdActivity extends AppCompatActivity {
         mKnownButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(DetectBirdActivity.this, BirdsActivity.class);
+                startActivity(intent);
+            }
+            /*
+            @Override
+            public void onClick(View view) {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -98,6 +105,7 @@ public class DetectBirdActivity extends AppCompatActivity {
                     }
                 }).start();
             }
+            */
         });
 
 

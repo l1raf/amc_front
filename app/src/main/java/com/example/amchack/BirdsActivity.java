@@ -20,9 +20,9 @@ public class BirdsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_birds);
 
         mBirdsAdapter = new BirdsAdapter();
-        mRecyclerView = findViewById(R.id.found_birds);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-        mRecyclerView.setAdapter(mBirdsAdapter);
+       // mRecyclerView = findViewById(R.id.found_birds);
+       // mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        //mRecyclerView.setAdapter(mBirdsAdapter);
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
