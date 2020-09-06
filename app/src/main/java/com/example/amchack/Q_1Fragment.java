@@ -64,14 +64,7 @@ public class Q_1Fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
        View v = inflater.inflate(R.layout.fragment_q_1, container, false);
-       OkButton = v.findViewById(R.id.nextButton);
-       OkButton.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               container.setVisibility(View.INVISIBLE);
-               //getActivity().findViewById(R.id.for_dark).setBackgroundColor(Color.TRANSPARENT);
-           }
-       });
+       getActivity().findViewById(R.id.for_dark).setBackgroundColor(Color.TRANSPARENT);
        return v;
     }
 }

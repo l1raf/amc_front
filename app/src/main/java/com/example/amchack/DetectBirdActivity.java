@@ -66,6 +66,7 @@ public class DetectBirdActivity extends AppCompatActivity {
                         mKnownButton.setEnabled(false);
                     }
                 });
+
         mQuestion2TV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,8 +106,14 @@ public class DetectBirdActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        findViewById(R.id.for_dark).setBackgroundColor(Color.TRANSPARENT);
+    }
+
     private void AskQuestions() {
-        mQuestionTV.setText("Какого цвета птица?");
+
 
     }
 }
