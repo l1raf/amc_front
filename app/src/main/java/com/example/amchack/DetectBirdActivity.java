@@ -1,11 +1,18 @@
 package com.example.amchack;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -26,8 +33,11 @@ import okhttp3.Response;
 public class DetectBirdActivity extends AppCompatActivity {
 
     private TextView mQuestionTV;
+    public static FragmentManager fragmentManager;
     private Spinner spinner;
+    private Button mKnownButton;
     private RadioGroup mRadioGroup;
+    FrameLayout mForDark;
     private RadioButton r1, r2, r3, r4, r5, r6, r7, r8, r9;
     private static OkHttpClient client;
     private final static String url = "https://hseapitraining20200905085422.azurewebsites.net/api/Birds/GetAllBirds";
@@ -40,6 +50,21 @@ public class DetectBirdActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detect_bird);
         mQuestionTV = findViewById(R.id.question_tv);
+        mKnownButton = findViewById(R.id.know_button);
+        mForDark = findViewById(R.id.for_dark);
+
+        mKnownButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                        fragmentManager = getSupportFragmentManager();
+                        FragmentTransaction transaction = fragmentManager.beginTransaction();
+                        Q_1Fragment fragment = new Q_1Fragment();
+                        transaction.add(R.id.question_container, fragment).commit();
+                        transaction.addToBackStack(null);
+                        mForDark.setBackgroundResource(R.drawable.black_trans_back);
+                        mKnownButton.setEnabled(false);
+                    }
+                });
 
 
         client = new OkHttpClient();
@@ -71,6 +96,4 @@ public class DetectBirdActivity extends AppCompatActivity {
         mQuestionTV.setText("Какого цвета птица?");
 
     }
-
-
 }

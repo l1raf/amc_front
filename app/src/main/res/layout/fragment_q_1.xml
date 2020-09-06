@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/back_trans_violet"
+    android:elevation="30dp"
 android:id="@+id/answers_card"
 android:layout_width="match_parent"
 android:layout_height="match_parent">
@@ -15,8 +17,10 @@ android:layout_height="match_parent">
     android:gravity="center">
 
     <RadioButton
-
         android:id="@+id/radioButton1"
+        android:padding="10dp"
+        android:text="Черная/черные участки"
+        android:textSize="15sp"
         android:layout_marginHorizontal="10dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/radio_button_back"
@@ -26,6 +30,9 @@ android:layout_height="match_parent">
         android:textColor="@android:color/black" />
 
     <RadioButton
+        android:padding="10dp"
+        android:text="Белая/белые участки"
+        android:textSize="15sp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/radio_button_back"
         android:id="@+id/radioButton2"
@@ -36,6 +43,9 @@ android:layout_height="match_parent">
         android:textColor="@android:color/black" />
 
     <RadioButton
+        android:padding="10dp"
+        android:text="Красные/оранжевые участки"
+        android:textSize="15sp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/radio_button_back"
         android:id="@+id/radioButton3"
@@ -46,6 +56,9 @@ android:layout_height="match_parent">
         android:textColor="@android:color/black" />
 
     <RadioButton
+        android:padding="10dp"
+        android:text="Желтая/зеленая/голубая"
+        android:textSize="15sp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/radio_button_back"
         android:id="@+id/radioButton4"
@@ -56,6 +69,9 @@ android:layout_height="match_parent">
         android:textColor="@android:color/black" />
 
     <RadioButton
+        android:padding="10dp"
+        android:text="Серая"
+        android:textSize="15sp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/radio_button_back"
         android:id="@+id/radioButton5"
@@ -66,6 +82,9 @@ android:layout_height="match_parent">
         android:textColor="@android:color/black" />
 
     <RadioButton
+        android:padding="10dp"
+        android:text="Коричневая/бурая (воробьиные)"
+        android:textSize="15sp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/radio_button_back"
         android:id="@+id/radioButton6"
@@ -76,6 +95,9 @@ android:layout_height="match_parent">
         android:textColor="@android:color/black" />
 
     <RadioButton
+        android:padding="10dp"
+        android:text="Коричневая/бурая (неворобьиные)"
+        android:textSize="15sp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/radio_button_back"
         android:id="@+id/radioButton7"
@@ -86,6 +108,9 @@ android:layout_height="match_parent">
         android:textColor="@android:color/black" />
 
     <RadioButton
+        android:padding="10dp"
+        android:text="С продольными пестринами"
+        android:textSize="15sp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/radio_button_back"
         android:id="@+id/radioButton8"
@@ -96,6 +121,9 @@ android:layout_height="match_parent">
         android:textColor="@android:color/black" />
 
     <RadioButton
+        android:padding="10dp"
+        android:text="С поперечными пестринами"
+        android:textSize="15sp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/radio_button_back"
         android:id="@+id/radioButton9"
@@ -104,6 +132,13 @@ android:layout_height="match_parent">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black" />
+
+    <ImageButton
+        android:id="@+id/nextButton"
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/next_icon" />
 
 </RadioGroup>
 
