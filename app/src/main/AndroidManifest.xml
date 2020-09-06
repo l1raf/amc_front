@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.ActionBar.Transparent">
-        <activity android:name=".DetectBirdActivity"></activity>
+        <activity android:name=".BirdsActivity"></activity>
+        <activity android:name=".DetectBirdActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

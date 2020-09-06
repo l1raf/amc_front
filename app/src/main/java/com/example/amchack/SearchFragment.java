@@ -24,14 +24,13 @@ public class SearchFragment extends Fragment {
     private RadioGroup mRadioGroup;
     private static String birdName;
     private String[] mNames;
+    private SharedPreferencesHelper mSharedPreferencesHelper;
 
     public static String getBirdName() {
         return birdName;
     }
 
-    public SearchFragment() {
-        // Required empty public constructor
-    }
+    public SearchFragment() { }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,19 +41,25 @@ public class SearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.list_fragment, container, false);
-        mScrollView = view.findViewById(R.id.names_scroll_view);
         mRadioGroup = view.findViewById(R.id.list_rg);
 
-        getNames();
+        mSharedPreferencesHelper = new SharedPreferencesHelper(getActivity());
 
+        getNames();
         for (int i = 0; i < mNames.length; i++) {
             RadioButton button = new RadioButton(getContext());
-            //button.setBackground(getResources().getDrawable(R.drawable.radio_button_back));
             button.setPadding(10, 0, 10, 10);
             button.setText(mNames[i]);
             button.setId(i);
             mRadioGroup.addView(button);
         }
+
+        mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                mSharedPreferencesHelper.saveChoice(mNames[checkedId]);
+            }
+        });
 
         return view;
     }
