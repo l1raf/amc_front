@@ -9,6 +9,9 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -37,10 +40,12 @@ public class DetectBirdActivity extends AppCompatActivity {
     private Spinner spinner;
     private Button mKnownButton;
     private RadioGroup mRadioGroup;
+    public static Bird birdForDetect;
     FrameLayout mForDark;
+    CategoryRequest categoryRequest;
     private RadioButton r1, r2, r3, r4, r5, r6, r7, r8, r9;
     private static OkHttpClient client;
-    private final static String url = "https://hseapitraining20200905085422.azurewebsites.net/api/Birds/GetAllBirds";
+    private final static String url = "https://hseapitraining20200906011224.azurewebsites.net/api/Birds/";
 
     private String[] colors_user = {"Черная/черные участки","Белая/белые участки"," Красные/оранжевые участки", "Желтая/зеленая/голубая", "Серая",
             "Бурая/рыжая/коричневая (воробьиные)", "Бурая/рыжая/коричневая (неворобьиные)", "С продольными пестринами", "С поперечными пестринами"};
@@ -53,6 +58,9 @@ public class DetectBirdActivity extends AppCompatActivity {
         mQuestion2TV = findViewById(R.id.question_tv_2);
         mKnownButton = findViewById(R.id.know_button);
         mForDark = findViewById(R.id.for_dark);
+        birdForDetect = new Bird();
+        categoryRequest = new CategoryRequest();
+        client = new OkHttpClient();
 
         mQuestionTV.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +71,7 @@ public class DetectBirdActivity extends AppCompatActivity {
                         transaction.add(R.id.question_container, fragment).commit();
                         transaction.addToBackStack(null);
                         mForDark.setBackgroundResource(R.drawable.black_trans_back);
-                        mKnownButton.setEnabled(false);
+
                     }
                 });
 
@@ -76,20 +84,33 @@ public class DetectBirdActivity extends AppCompatActivity {
                 transaction.add(R.id.question_container, fragment).commit();
                 transaction.addToBackStack(null);
                 mForDark.setBackgroundResource(R.drawable.black_trans_back);
-                mKnownButton.setEnabled(false);
+
+            }
+        });
+
+        mKnownButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        ToJson();
+                    }
+                }).start();
             }
         });
 
 
-        client = new OkHttpClient();
-        AskQuestions();
 
+        /*
         new Thread(new Runnable() {
             @Override
             public void run() {
                 MakeGet();
             }
         }).start();
+        */
+
 
     }
 
@@ -97,6 +118,7 @@ public class DetectBirdActivity extends AppCompatActivity {
         Request request = new Request.Builder()
                 .url(url)
                 .build();
+
 
         try {
             Response response = client.newCall(request).execute();
@@ -109,11 +131,22 @@ public class DetectBirdActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        findViewById(R.id.for_dark).setBackgroundColor(Color.TRANSPARENT);
+        findViewById(R.id.for_dark).setBackgroundResource(R.drawable.back_trans);
+        categoryRequest.Color = birdForDetect.getColor();
+        categoryRequest.Size = birdForDetect.getSize();
+        Toast.makeText(this, birdForDetect.getColor() + birdForDetect.getSize(),Toast.LENGTH_LONG).show();
     }
 
-    private void AskQuestions() {
-
-
+    public void ToJson() {
+        String json = url + birdForDetect.getColor() + "&" + birdForDetect.getSize();
+        Request request = new Request.Builder()
+                .url(json)
+                .build();
+        try {
+            Response response = client.newCall(request).execute();
+            Toast.makeText(this, response.body().string().substring(0,10), Toast.LENGTH_LONG).show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

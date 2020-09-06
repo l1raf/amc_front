@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,6 +24,7 @@ public class Q_1Fragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private RadioGroup mRadioGroup;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -58,13 +61,30 @@ public class Q_1Fragment extends Fragment {
         }
     }
 
-    private ImageButton OkButton;
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       View v = inflater.inflate(R.layout.fragment_q_1, container, false);
-       getActivity().findViewById(R.id.for_dark).setBackgroundColor(Color.TRANSPARENT);
+       final View v = inflater.inflate(R.layout.fragment_q_1, container, false);
+       getActivity().findViewById(R.id.for_dark).setBackgroundResource(R.drawable.black_trans_back);
+
+       // окрас
+
+        mRadioGroup = v.findViewById(R.id.answers_radio_group);
+        RadioButton r = mRadioGroup.findViewById(R.id.radioButton1);
+        r.setChecked(true);
+        int radioButtonID = mRadioGroup.getCheckedRadioButtonId();
+        View radioButton = mRadioGroup.findViewById(radioButtonID);
+        DetectBirdActivity.birdForDetect.setColor(r.getText().toString());
+
+        mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int id) {
+                RadioButton r = mRadioGroup.findViewById(mRadioGroup.getCheckedRadioButtonId());
+
+                DetectBirdActivity.birdForDetect.setColor(r.getText().toString());
+            }
+        });
        return v;
     }
 }

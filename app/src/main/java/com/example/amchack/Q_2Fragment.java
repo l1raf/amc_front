@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,6 +22,7 @@ import android.widget.ImageButton;
  */
 public class Q_2Fragment extends Fragment {
 
+    private RadioGroup mRadioGroup;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -65,6 +68,20 @@ public class Q_2Fragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_q_2, container, false);
 
+        mRadioGroup = v.findViewById(R.id.answers_radio_group_2);
+        RadioButton r = mRadioGroup.findViewById(R.id.radioButton2_2);
+        r.setChecked(true);
+        int radioButtonID = mRadioGroup.getCheckedRadioButtonId();
+        View radioButton = mRadioGroup.findViewById(radioButtonID);
+        DetectBirdActivity.birdForDetect.setColor(r.getText().toString());
+
+        mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int id) {
+                RadioButton r = mRadioGroup.findViewById(mRadioGroup.getCheckedRadioButtonId());
+                DetectBirdActivity.birdForDetect.setSize(r.getText().toString());
+            }
+        });
         return v;
     }
 }
