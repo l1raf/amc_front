@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     private CardView mFindBirdButton;
     FusedLocationProviderClient client;
     SupportMapFragment supportMapFragment;
-    private FragmentManager fragmentManager;
+    public static FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                         .replace(R.id.buttons_fragment_container, buttonsFragment)
                         .addToBackStack(ButtonsFragment.class.getName())
                         .commit();
+                mFindBirdButton.setVisibility(View.GONE);
             }
         });
     }
