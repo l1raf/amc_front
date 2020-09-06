@@ -1,6 +1,51 @@
 package com.example.amchack;
 
-public class Bird {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
+public class Bird implements Serializable, Parcelable {
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(Name);
+        parcel.writeString(Color);
+        parcel.writeString(Size);
+        parcel.writeString(Picture);
+        parcel.writeString(Sound);
+        parcel.writeString(Familia);
+        parcel.writeString(Ordo);
+        parcel.writeString(Genus);
+        parcel.writeString(Food);
+    }
+
+    public Bird(Parcel in) {
+        Name = in.readString();
+        Color = in.readString();
+        Size = in.readString();
+        Picture = in.readString();
+        Sound = in.readString();
+        Familia = in.readString();
+        Ordo = in.readString();
+        Genus = in.readString();
+        Food = in.readString();
+    }
+
+    public Bird() {}
+
+    public static final Creator<Bird> CREATOR = new Creator<Bird>() {
+        @Override
+        public Bird createFromParcel(Parcel in) {
+            return new Bird(in);
+        }
+
+        @Override
+        public Bird[] newArray(int size) {
+            return new Bird[size];
+        }
+    };
+
     public String getName() {
         return Name;
     }
@@ -90,4 +135,9 @@ public class Bird {
     }
 
     private String Food;
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 }

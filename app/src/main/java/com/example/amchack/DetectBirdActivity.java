@@ -102,27 +102,26 @@ public class DetectBirdActivity extends AppCompatActivity {
 
 
 
-        /*
         new Thread(new Runnable() {
             @Override
             public void run() {
                 MakeGet();
             }
         }).start();
-        */
-
 
     }
 
     private void MakeGet() {
+        String json = url + "GetAllBirds";
+
         Request request = new Request.Builder()
-                .url(url)
+                .url(json)
                 .build();
 
 
         try {
             Response response = client.newCall(request).execute();
-           // mQuestionTV.setText(response.body().string().substring(0,10));
+            mQuestionTV.setText(response.body().string().substring(0,10));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -138,7 +137,8 @@ public class DetectBirdActivity extends AppCompatActivity {
     }
 
     public void ToJson() {
-        String json = url + birdForDetect.getColor() + "&" + birdForDetect.getSize();
+        //String json = url + birdForDetect.getColor() + "&" + birdForDetect.getSize();
+        String json = url + "GetAllBirds";
         Request request = new Request.Builder()
                 .url(json)
                 .build();

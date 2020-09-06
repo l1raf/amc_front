@@ -2,7 +2,11 @@ package com.example.amchack;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.Loader;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,9 +22,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class SearchFragment extends Fragment {
+public class SearchFragment extends Fragment implements LoaderManager.LoaderCallbacks<String> {
 
     private ScrollView mScrollView;
+    private Button mButton;
     private RadioGroup mRadioGroup;
     private static String birdName;
     private String[] mNames;
@@ -42,6 +47,8 @@ public class SearchFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.list_fragment, container, false);
         mRadioGroup = view.findViewById(R.id.list_rg);
+        mButton = view.findViewById(R.id.add_button);
+        mButton.setEnabled(false);
 
         mSharedPreferencesHelper = new SharedPreferencesHelper(getActivity());
 
@@ -58,6 +65,17 @@ public class SearchFragment extends Fragment {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 mSharedPreferencesHelper.saveChoice(mNames[checkedId]);
+                mButton.setEnabled(true);
+                mButton.setText("Добавить птицу!");
+            }
+        });
+
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String name = mSharedPreferencesHelper.getChoice();
+
+
             }
         });
 
@@ -86,5 +104,21 @@ public class SearchFragment extends Fragment {
         }
 
         return byteStream.toString();
+    }
+
+    @NonNull
+    @Override
+    public Loader<String> onCreateLoader(int id, @Nullable Bundle args) {
+        return null;
+    }
+
+    @Override
+    public void onLoadFinished(@NonNull Loader<String> loader, String data) {
+
+    }
+
+    @Override
+    public void onLoaderReset(@NonNull Loader<String> loader) {
+
     }
 }
