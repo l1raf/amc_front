@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/back_trans_violet"
+    android:elevation="30dp"
+    android:id="@+id/answers_card"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioGroup
+        android:id="@+id/answers_radio_group_2"
+        android:paddingHorizontal="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:padding="10dp"
+            android:text="Меньше воробья"
+            android:textSize="15sp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/radio_button_back"
+            android:fontFamily="sans-serif-light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black" />
+
+        <RadioButton
+            android:padding="10dp"
+            android:text="С воробья"
+            android:textSize="15sp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/radio_button_back"
+            android:id="@+id/radioButton2_2"
+            android:layout_marginHorizontal="10dp"
+            android:fontFamily="sans-serif-light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black" />
+
+        <RadioButton
+            android:padding="10dp"
+            android:text="Со скворца или дрозда"
+            android:textSize="15sp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/radio_button_back"
+            android:id="@+id/radioButton3_2"
+            android:layout_marginHorizontal="10dp"
+            android:fontFamily="sans-serif-light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black" />
+
+        <RadioButton
+            android:padding="10dp"
+            android:text="С голубя"
+            android:textSize="15sp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/radio_button_back"
+            android:id="@+id/radioButton4_2"
+            android:layout_marginHorizontal="10dp"
+            android:fontFamily="sans-serif-light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black" />
+
+        <RadioButton
+            android:padding="10dp"
+            android:text="С утку или ворону"
+            android:textSize="15sp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/radio_button_back"
+            android:id="@+id/radioButton5_2"
+            android:layout_marginHorizontal="10dp"
+            android:fontFamily="sans-serif-light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black" />
+
+        <RadioButton
+            android:padding="10dp"
+            android:text="С гуся и больше"
+            android:textSize="15sp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/radio_button_back"
+            android:id="@+id/radioButton6_2"
+            android:layout_marginHorizontal="10dp"
+            android:fontFamily="sans-serif-light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:background="@android:color/transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/next_icon" />
+
+    </RadioGroup>
+
+</FrameLayout>
+
