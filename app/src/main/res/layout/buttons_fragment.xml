@@ -3,28 +3,59 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/transparent">
+    android:background="@drawable/background_rounded_corners">
 
     <LinearLayout
+        android:layout_marginBottom="30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal|center_vertical">
 
-        <ImageButton
-            android:id="@+id/add_button"
-            android:layout_marginBottom="30dp"
-            android:layout_marginEnd="50dp"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/add_button_background"/>
+            android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/search_button"
-            android:layout_marginBottom="30dp"
+            <ImageButton
+                android:id="@+id/add_button"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/add_button_background"/>
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/add"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginStart="70dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/search_button_background"/>
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/search_button"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_button_background"/>
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/search"/>
+
+        </LinearLayout>
 
     </LinearLayout>
-
 </RelativeLayout>

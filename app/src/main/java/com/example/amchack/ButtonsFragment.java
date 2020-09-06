@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -73,6 +74,18 @@ public class ButtonsFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), DetectBirdActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        final SearchFragment searchFragment = new SearchFragment();
+
+        mSearchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity.fragmentManager.beginTransaction()
+                        .replace(R.id.list_fragment_container, searchFragment)
+                        .addToBackStack(SearchFragment.class.getName())
+                        .commit();
             }
         });
 
