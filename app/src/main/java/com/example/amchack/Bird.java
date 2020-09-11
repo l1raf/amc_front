@@ -3,10 +3,13 @@ package com.example.amchack;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
-public class Bird implements Serializable, Parcelable {
-
+public class Bird  {
+    /*
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(Name);
@@ -32,7 +35,8 @@ public class Bird implements Serializable, Parcelable {
         Food = in.readString();
     }
 
-    public Bird() {}
+
+
 
     public static final Creator<Bird> CREATOR = new Creator<Bird>() {
         @Override
@@ -45,99 +49,119 @@ public class Bird implements Serializable, Parcelable {
             return new Bird[size];
         }
     };
+        public Bird() {}
+
+     */
+
+
+
+    @SerializedName("Name")
+    @Expose
+    private String name;
+    @SerializedName("Color")
+    @Expose
+    private String color;
+    @SerializedName("Size")
+    @Expose
+    private String size;
+    @SerializedName("Picture")
+    @Expose
+    private String picture;
+    @SerializedName("Sound")
+    @Expose
+    private String sound;
+    @SerializedName("Familia")
+    @Expose
+    private String familia;
+    @SerializedName("Ordo")
+    @Expose
+    private String ordo;
+    @SerializedName("Genus")
+    @Expose
+    private String genus;
+    @SerializedName("Meal")
+    @Expose
+    private String meal;
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
-    private String Name;
-
     public String getColor() {
-        return Color;
+        return color;
     }
 
     public void setColor(String color) {
-        Color = color;
+        this.color = color;
     }
 
-    private String Color;
-
     public String getSize() {
-        return Size;
+        return size;
     }
 
     public void setSize(String size) {
-        Size = size;
+        this.size = size;
     }
 
-    private String Size;
-
     public String getPicture() {
-        return Picture;
+        return picture;
     }
 
     public void setPicture(String picture) {
-        Picture = picture;
+        this.picture = picture;
     }
 
-    private String Picture;
-
     public String getSound() {
-        return Sound;
+        return sound;
     }
 
     public void setSound(String sound) {
-        Sound = sound;
+        this.sound = sound;
     }
 
-    private String Sound;
-
     public String getFamilia() {
-        return Familia;
+        return familia;
     }
 
     public void setFamilia(String familia) {
-        Familia = familia;
+        this.familia = familia;
     }
 
-    private String Familia;
-
     public String getOrdo() {
-        return Ordo;
+        return ordo;
     }
 
     public void setOrdo(String ordo) {
-        Ordo = ordo;
+        this.ordo = ordo;
     }
 
-    private String Ordo;
-
     public String getGenus() {
-        return Genus;
+        return genus;
     }
 
     public void setGenus(String genus) {
-        Genus = genus;
+        this.genus = genus;
     }
 
-    private String Genus;
-
-    public String getFood() {
-        return Food;
+    public String getMeal() {
+        return meal;
     }
 
-    public void setFood(String food) {
-        Food = food;
+    public void setMeal(String meal) {
+        this.meal = meal;
     }
 
-    private String Food;
-
+    /*
     @Override
     public int describeContents() {
         return 0;
     }
+
+     */
+
+
 }

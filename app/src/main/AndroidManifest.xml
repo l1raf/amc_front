@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.ActionBar.Transparent">
-        <activity android:name=".BirdsActivity"></activity>
+        <activity android:name=".FilteredBirdsActivity"></activity>
         <activity android:name=".BirdsActivity2">
         </activity>
         <activity android:name=".DetectBirdActivity" />

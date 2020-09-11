@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_margin="5dp"
+    android:layout_width="200dp"
+    android:layout_height="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="20dp">
+
+
+    <TextView
+        android:id="@+id/filtered_tv"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:elevation="2dp"
+        android:text="bird"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"/>
+
+    <ImageView
+        android:id="@+id/filtered_image"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/bird" />
+
+</androidx.cardview.widget.CardView>
