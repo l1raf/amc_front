@@ -3,6 +3,7 @@ package com.example.amchack;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +14,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -52,9 +56,12 @@ public class FilteredBirdsAdapter extends RecyclerView.Adapter<FilteredBirdsAdap
 
     @Override
     public void onBindViewHolder(@NonNull CardViewHolder holder, int position) {
-        //holder.imageView.setImageBitmap(getBitmapFromURL(birdList.get(position).getPicture()));
-        holder.textView.setText(birdList.get(position).getName());
-       // Picasso.get().load(getBitmapFromURL(birdList.get(position).getPicture())).into(holder.imageView);
+        String A = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Landsvale.jpg/275px-Landsvale.jpg";
+        //holder.imageView.setImageBitmap(CropBitmap(getBitmapFromURL(birdList.get(position).getPicture())));
+       // holder.imageView.setImageBitmap(getBitmapFromURL(A));
+       // Picasso.get().load(Uri.parse(birdList.get(position).getPicture())).into(holder.imageView);
+        Picasso.get().load(Uri.parse(A)).into(holder.imageView);
+
     }
 
     @Override
@@ -109,5 +116,9 @@ public class FilteredBirdsAdapter extends RecyclerView.Adapter<FilteredBirdsAdap
     public void setNewList(ArrayList<Bird> birdlist){
         this.birdList = birdlist;
         notifyDataSetChanged();
+    }
+
+    private static Bitmap CropBitmap(Bitmap oldbmp) {
+        return Bitmap.createBitmap(oldbmp, 0,0,300, 300);
     }
 }
